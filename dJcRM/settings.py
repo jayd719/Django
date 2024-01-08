@@ -25,7 +25,7 @@ SECRET_KEY = 'x5b9#h+@e5k1l=qht9sd-@b^hos^z%j&^1)#1$my3yj&f)nzku'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['jlive.azurewebsites.net','www.jlive.azurewebsites.net','127.0.0.1']
 
 
 # Application definition
@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'leads.apps.LeadsConfig',
 ]
 
 MIDDLEWARE = [
