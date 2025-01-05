@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blinkit Clone</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-50 font-sans">
+
+
+    <main class="p-6">
+        <!-- Hero Section -->
+        <section
+            class="bg-gradient-to-r from-green-600 to-green-700 text-white p-8 rounded-xl flex flex-col md:flex-row items-center justify-between shadow-lg">
+            <div>
+                <h2 class="text-4xl font-extrabold">Paan Corner 🍃</h2>
+                <p class="text-lg mt-2">Your favourite paan shop is now online.</p>
+                <button
+                    class="mt-4 bg-white text-green-700 px-6 py-3 rounded-lg font-semibold shadow-md hover:bg-gray-100 transition">Shop
+                    Now</button>
+            </div>
+            <img src="paan_corner.png" alt="Paan Corner" class="w-1/3 md:w-1/4 rounded-lg shadow-md">
+        </section>
+
+        <!-- Categories Section -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+            <div class="bg-blue-500 text-white p-6 rounded-xl shadow-lg hover:shadow-xl transition">
+                <h3 class="text-lg font-bold">🏥 Pharmacy at your doorstep!</h3>
+                <p class="mt-2">Cough syrups, pain relief sprays & more</p>
+                <button
+                    class="mt-4 bg-white text-blue-600 px-6 py-2 rounded-lg font-semibold shadow-md hover:bg-gray-100 transition">Order
+                    Now</button>
+            </div>
+            <div class="bg-yellow-400 text-white p-6 rounded-xl shadow-lg hover:shadow-xl transition">
+                <h3 class="text-lg font-bold">🐶 Pet Care supplies in minutes</h3>
+                <p class="mt-2">Food, treats, toys & more</p>
+                <button
+                    class="mt-4 bg-white text-yellow-600 px-6 py-2 rounded-lg font-semibold shadow-md hover:bg-gray-100 transition">Order
+                    Now</button>
+            </div>
+            <div class="bg-gray-700 text-white p-6 rounded-xl shadow-lg hover:shadow-xl transition">
+                <h3 class="text-lg font-bold">👶 No time for a diaper run?</h3>
+                <p class="mt-2">Get baby care essentials in minutes</p>
+                <button
+                    class="mt-4 bg-white text-gray-700 px-6 py-2 rounded-lg font-semibold shadow-md hover:bg-gray-100 transition">Order
+                    Now</button>
+            </div>
+        </section>
+
+        <!-- Products Section -->
+        <section class="mt-10">
+            <h2 class="text-3xl font-bold">🍿 Snacks & Munchies</h2>
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-6 mt-6">
+                <template id="product-template">
+                    <div
+                        class="bg-white p-6 rounded-lg text-center shadow-md hover:shadow-lg transition transform hover:-translate-y-1">
+                        <img src="https://via.placeholder.com/150" alt="Product Image"
+                            class="mx-auto rounded-lg shadow">
+                        <p class="mt-2 font-semibold">Sample Product</p>
+                        <p class="text-green-600 font-bold mt-1">₹99</p>
+                        <button
+                            class="bg-green-600 text-white px-6 py-2 rounded-lg mt-4 shadow-md hover:bg-green-700 transition">ADD</button>
+                    </div>
+                </template>
+                <script>
+                    const productContainer = document.querySelector(".grid");
+                    const productTemplate = document.getElementById("product-template");
+                    for (let i = 0; i < 5; i++) {
+                        productContainer.appendChild(productTemplate.content.cloneNode(true));
+                    }
+                </script>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-white p-8 mt-10 text-gray-700 shadow-inner">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm">
+            <div>
+                <h3 class="font-bold text-lg">🔗 Useful Links</h3>
+                <p class="mt-2">About | Careers | Blog | Press | Lead | Value</p>
+                <p class="mt-1">Privacy | Terms | FAQs | Security | Mobile | Contact</p>
+            </div>
+            <div>
+                <h3 class="font-bold text-lg">🛍️ Categories</h3>
+                <p class="mt-2">Vegetables & Fruits | Dairy & Breakfast | Instant & Frozen Food | Snacks | Beverages |
+                    Paan Corner</p>
+            </div>
+            <div class="text-center md:text-right">
+                <p class="text-sm">&copy; Blink Commerce Private Limited, 2016-2025</p>
+                <p class="mt-2">📲 Download App: [App Store] [Google Play]</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blinkit Clone</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'blinkit-green': '#0c831f',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-gray-100 min-h-screen flex flex-col">
+    <header class="bg-white shadow-md">
+        <div class="container mx-auto px-4 py-4 flex flex-wrap items-center justify-between">
+            <h1 class="text-2xl font-bold text-blinkit-green">blinkit</h1>
+            <div class="text-sm font-semibold text-gray-600 text-right">
+                <p>Delivery in 14 minutes</p>
+                <p>Chandni Chowk, Delhi, India</p>
+            </div>
+            <div class="w-full md:w-1/3 mt-4 md:mt-0">
+                <input type="text" placeholder="Search 'paneer'"
+                    class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blinkit-green focus:border-transparent">
+            </div>
+            <div class="flex items-center mt-4 md:mt-0">
+                <button class="text-blinkit-green font-semibold mr-4 hover:underline">Login</button>
+                <button
+                    class="bg-blinkit-green text-white px-4 py-2 rounded-md hover:bg-green-700 transition duration-300 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                    My Cart
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow container mx-auto px-4 py-8">
+        <section
+            class="bg-blinkit-green text-white p-6 rounded-lg flex flex-col md:flex-row items-center justify-between mb-8">
+            <div>
+                <h2 class="text-3xl font-bold mb-2">Paan corner</h2>
+                <p class="text-lg mb-4">Your favourite paan shop is now online</p>
+                <button
+                    class="bg-white text-blinkit-green px-4 py-2 rounded-md font-semibold hover:bg-gray-100 transition duration-300">Shop
+                    Now</button>
+            </div>
+            <img src="/placeholder.svg" alt="Paan Corner" class="w-full md:w-1/3 mt-4 md:mt-0 rounded-lg">
+        </section>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+            <div class="bg-blue-600 text-white p-4 rounded-lg">
+                <h3 class="font-bold mb-2">Pharmacy at your doorstep!</h3>
+                <p class="mb-4">Cough syrups, pain relief sprays & more</p>
+                <button
+                    class="bg-white text-blue-600 px-4 py-2 rounded-md font-semibold hover:bg-gray-100 transition duration-300">Order
+                    Now</button>
+            </div>
+            <div class="bg-yellow-500 text-white p-4 rounded-lg">
+                <h3 class="font-bold mb-2">Pet Care supplies in minutes</h3>
+                <p class="mb-4">Food, treats, toys & more</p>
+                <button
+                    class="bg-white text-yellow-600 px-4 py-2 rounded-md font-semibold hover:bg-gray-100 transition duration-300">Order
+                    Now</button>
+            </div>
+            <div class="bg-gray-600 text-white p-4 rounded-lg">
+                <h3 class="font-bold mb-2">No time for a diaper run?</h3>
+                <p class="mb-4">Get baby care essentials in minutes</p>
+                <button
+                    class="bg-white text-gray-700 px-4 py-2 rounded-md font-semibold hover:bg-gray-100 transition duration-300">Order
+                    Now</button>
+            </div>
+        </div>
+
+        <section>
+            <h2 class="text-2xl font-bold mb-4">Snacks & Munchies</h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                <div class="bg-white p-4 rounded-lg text-center shadow-md transition-transform hover:scale-105">
+                    <img src="/placeholder.svg" alt="Sample Product 1" class="w-full h-32 object-cover mb-2 rounded">
+                    <p class="font-semibold mb-1">Sample Product 1</p>
+                    <p class="text-blinkit-green font-bold mb-2">₹99</p>
+                    <button
+                        class="bg-blinkit-green text-white px-4 py-2 rounded-md w-full hover:bg-green-700 transition duration-300">ADD</button>
+                </div>
+                <div class="bg-white p-4 rounded-lg text-center shadow-md transition-transform hover:scale-105">
+                    <img src="/placeholder.svg" alt="Sample Product 2" class="w-full h-32 object-cover mb-2 rounded">
+                    <p class="font-semibold mb-1">Sample Product 2</p>
+                    <p class="text-blinkit-green font-bold mb-2">₹149</p>
+                    <button
+                        class="bg-blinkit-green text-white px-4 py-2 rounded-md w-full hover:bg-green-700 transition duration-300">ADD</button>
+                </div>
+                <div class="bg-white p-4 rounded-lg text-center shadow-md transition-transform hover:scale-105">
+                    <img src="/placeholder.svg" alt="Sample Product 3" class="w-full h-32 object-cover mb-2 rounded">
+                    <p class="font-semibold mb-1">Sample Product 3</p>
+                    <p class="text-blinkit-green font-bold mb-2">₹199</p>
+                    <button
+                        class="bg-blinkit-green text-white px-4 py-2 rounded-md w-full hover:bg-green-700 transition duration-300">ADD</button>
+                </div>
+                <div class="bg-white p-4 rounded-lg text-center shadow-md transition-transform hover:scale-105">
+                    <img src="/placeholder.svg" alt="Sample Product 4" class="w-full h-32 object-cover mb-2 rounded">
+                    <p class="font-semibold mb-1">Sample Product 4</p>
+                    <p class="text-blinkit-green font-bold mb-2">₹79</p>
+                    <button
+                        class="bg-blinkit-green text-white px-4 py-2 rounded-md w-full hover:bg-green-700 transition duration-300">ADD</button>
+                </div>
+                <div class="bg-white p-4 rounded-lg text-center shadow-md transition-transform hover:scale-105">
+                    <img src="/placeholder.svg" alt="Sample Product 5" class="w-full h-32 object-cover mb-2 rounded">
+                    <p class="font-semibold mb-1">Sample Product 5</p>
+                    <p class="text-blinkit-green font-bold mb-2">₹129</p>
+                    <button
+                        class="bg-blinkit-green text-white px-4 py-2 rounded-md w-full hover:bg-green-700 transition duration-300">ADD</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    <script>
+        // Add to cart functionality
+        const addButtons = document.querySelectorAll('button');
+        addButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                if (button.textContent === 'ADD') {
+                    let count = 1;
+                    button.textContent = `ADD (${count})`;
+                } else {
+                    let count = parseInt(button.textContent.match(/\d+/)[0]);
+                    count++;
+                    button.textContent = `ADD (${count})`;
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>My Cart</title>
+</head>
+
+<body class="bg-gray-100 p-4">
+    <div class="max-w-md mx-auto bg-white p-4 rounded-lg shadow-md">
+        <h2 class="text-xl font-bold">My Cart</h2>
+
+        <div class="mt-4 p-4 bg-gray-50 rounded-lg">
+            <div class="flex items-center space-x-2">
+                <span class="text-green-600 text-xl">⏳</span>
+                <p class="font-semibold">Delivery in 10 minutes</p>
+            </div>
+            <p class="text-gray-500">Shipment of 3 items</p>
+        </div>
+
+        <div class="mt-4 space-y-4">
+            <!-- Item 1 -->
+            <div class="flex items-center space-x-4">
+                <img src="https://via.placeholder.com/50" alt="Milk" class="w-12 h-12 rounded">
+                <div class="flex-1">
+                    <p class="font-semibold">Mother Dairy Toned Milk</p>
+                    <p class="text-sm text-gray-500">500 ml</p>
+                    <p class="font-bold">₹28</p>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <button class="bg-green-600 text-white px-2 py-1 rounded">-</button>
+                    <span>1</span>
+                    <button class="bg-green-600 text-white px-2 py-1 rounded">+</button>
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="flex items-center space-x-4">
+                <img src="https://via.placeholder.com/50" alt="Rolling Paper" class="w-12 h-12 rounded">
+                <div class="flex-1">
+                    <p class="font-semibold">Brown Rolling Paper (King Size)</p>
+                    <p class="text-sm text-gray-500">1 unit (32 pieces)</p>
+                    <p class="font-bold">₹50</p>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <button class="bg-green-600 text-white px-2 py-1 rounded">-</button>
+                    <span>1</span>
+                    <button class="bg-green-600 text-white px-2 py-1 rounded">+</button>
+                </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="flex items-center space-x-4">
+                <img src="https://via.placeholder.com/50" alt="White Rolling Paper" class="w-12 h-12 rounded">
+                <div class="flex-1">
+                    <p class="font-semibold">White Rolling Paper (Small)</p>
+                    <p class="text-sm text-gray-500">1 pack (40 pieces)</p>
+                    <p class="font-bold">₹45</p>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <button class="bg-green-600 text-white px-2 py-1 rounded">-</button>
+                    <span>1</span>
+                    <button class="bg-green-600 text-white px-2 py-1 rounded">+</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-6 p-4 bg-gray-50 rounded-lg">
+            <h3 class="font-semibold">Bill details</h3>
+            <div class="flex justify-between mt-2">
+                <span>Items total</span>
+                <span>₹123</span>
+            </div>
+            <div class="flex justify-between mt-2">
+                <span>Delivery charge</span>
+                <span class="text-green-600 line-through">₹25</span>
+                <span class="text-green-600">FREE</span>
+            </div>
+            <div class="flex justify-between mt-2">
+                <span>Handling charge</span>
+                <span>₹4</span>
+            </div>
+            <div class="flex justify-between mt-4 font-bold text-lg">
+                <span>Grand total</span>
+                <span>₹127</span>
+            </div>
+        </div>
+
+        <div class="mt-4 text-sm text-gray-600">
+            <h3 class="font-semibold">Cancellation Policy</h3>
+            <p>Orders cannot be cancelled once packed for delivery. In case of unexpected delays, a refund will be
+                provided, if applicable.</p>
+        </div>
+
+        <button class="mt-6 w-full bg-green-600 text-white py-3 rounded-lg font-semibold">Login to Proceed</button>
+    </div>
+</body>
+
+</html>
