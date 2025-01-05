@@ -1,6 +1,6 @@
 {%load static%}
 <header class="bg-white p-4 shadow-lg flex flex-wrap items-center justify-between gap-4 md:gap-6">
-    <h1 class="text-3xl font-extrabold text-green-600 tracking-wide">blinkit</h1>
+    <h1 class="text-3xl font-extrabold text-green-600 tracking-wide" id="headerlogo"><a href="/">blinkit</a></h1>
     <div class="text-sm font-semibold text-center md:text-left">
         <p class="text-gray-700">🚀 Delivery in <span class="text-green-600 font-bold">14 minutes</span></p>
         <p class="text-gray-500">📍 <span id="cityname"></span> </p>
@@ -8,11 +8,13 @@
     <input type="text" placeholder="🔍 Search 'paneer'"
         class="border p-3 rounded-lg w-full md:w-1/3 shadow-sm focus:ring-2 focus:ring-green-500">
     <div class="flex gap-4">
-        <button class="text-green-600 font-semibold hover:text-green-700 transition">Login</button>
+        <button onclick="loginform.showModal()"
+            class="text-green-600 font-semibold hover:text-green-700 transition">Login</button>
         <button class="bg-green-600 text-white px-6 py-2 rounded-lg shadow-md hover:bg-green-700 transition">
             <label for="my-drawer-4">🛒 MyCart</label></button>
 
     </div>
 </header>
 {%include 'core/cart.html'%}
+{%include 'core/login.html'%}
 <script src="{%static 'homepage/location.js'%}"></script>

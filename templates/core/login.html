@@ -1,0 +1,43 @@
+{%load static%}
+<dialog id="loginform" class="modal">
+    <div class="modal-box p-12">
+        <h1 id="loginformlogo"></h1>
+        <h2 class="card-title justify-center mb-2">Login</h2>
+        <form id="loginForm">
+            <div class="form-control">
+                <label class="label">
+                    <span class="label-text">Email</span>
+                </label>
+                <input type="email" id="email" placeholder="email@example.com" class="input input-bordered" required>
+            </div>
+            <div class="form-control mt-4">
+                <label class="label">
+                    <span class="label-text">Password</span>
+                </label>
+                <input type="password" id="password" placeholder="••••••••" class="input input-bordered" required>
+            </div>
+            <div class="form-control mt-6">
+                <button type="submit" class="btn btn-success bg-green-600 text-white ">Login</button>
+            </div>
+        </form>
+        <div class="divider">OR</div>
+        <div class="flex flex-col gap-2">
+            <button id="googleLogin" class="btn btn-outline">
+                <i class="fab fa-google mr-2"></i> Login with Google
+            </button>
+            <button id="facebookLogin" class="btn btn-outline">
+                <i class="fab fa-facebook-f mr-2"></i> Login with Facebook
+            </button>
+        </div>
+        <div class="my-2 text-center">
+            <p>Need An Account? <a class="link link-success" href="{%url 'sign-up'%}">Create Account</a></p>
+        </div>
+    </div>
+    <form method="dialog" class="modal-backdrop">
+        <button>close</button>
+    </form>
+</dialog>
+<script src="{%static 'userauths/logo.js'%}"></script>
+<script>
+    cloneLogoStyles("loginformlogo");
+</script>

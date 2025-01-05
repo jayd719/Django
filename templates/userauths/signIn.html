@@ -3,16 +3,13 @@
 {%load static%}
 {% block content %}
 <div>
-    <h1 id="loginformlogo1">s</h1>
-    <h2 class="card-title justify-center mb-2">Create An Account</h2>
-    <form action="" method="POST" id="signupform">
+    <form action="" method="POST">
         {% csrf_token %}
         {{ form|crispy }}
         <button class="btn btn-primary" type="submit">
-            Sign Up
+            Sign In
         </button>
     </form>
 </div>
 <script src="{%static 'userauths/signup.js'%}"></script>
-
 {% endblock %}
