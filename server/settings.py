@@ -41,6 +41,9 @@ INSTALLED_APPS = [
     # Customs Apps
     "core",
     "userauths",
+    # tailwind
+    "crispy_forms",
+    "crispy_tailwind",
 ]
 
 MIDDLEWARE = [
@@ -140,3 +143,7 @@ JAZZMIN_SETTINGS = {
 
 
 AUTH_USER_MODEL = "userauths.User"
+
+# Config for tailwind
+CRISPY_ALLOWED_TEMPLATE_PACKS = "tailwind"
+CRISPY_TEMPLATE_PACK = "tailwind"
