@@ -1,7 +1,94 @@
 {% extends 'base.html' %}
 {%load static%}
 {%block content%}
-
 <script src="{%static 'homepage/header.js'%}"></script>
+
+
+
+<main class="flex-grow container mx-auto px-4 py-8">
+    <section
+        class="bg-green-600 text-white p-6 rounded-lg flex flex-col md:flex-row items-center justify-between mb-16">
+        <div>
+            <h2 class="font-title text-5xl font-black leading-[1.1] [word-break:auto-phrase]">
+                Produce corner</h2>
+            <p class="text-lg mb-4">Your favourite shop is now online</p>
+            <button
+                class="bg-white text-green-600 px-4 py-2 rounded-md font-semibold hover:bg-gray-100 transition duration-300">Shop
+                Now</button>
+        </div>
+        <img src="{%static 'images/assets/image1.png'%}" alt="Paan Corner"
+            class="w-full md:w-2/3 mt-4 md:mt-0 rounded-lg translate-y-[90px]">
+    </section>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+        <div class="relative bg-blue-600 text-white p-4 rounded-lg">
+            <img src="{%static 'images/assets/image1.png'%}" alt="Paan Corner" class="absolute bottom-0 right-0 w-1/2 ">
+            <h3 class="font-bold mb-2 text-3xl">Pharmacy at your doorstep!</h3>
+            <p class="mb-4 z-1">Cough syrups, pain relief sprays & more</p>
+            <button
+                class="bg-white text-blue-600 px-4 py-2 rounded-md font-semibold hover:bg-gray-100 transition duration-300">Order
+                Now</button>
+        </div>
+        <div class="bg-yellow-500 text-white p-4 rounded-lg">
+            <h3 class="font-bold mb-2">Pet Care supplies in minutes</h3>
+            <p class="mb-4">Food, treats, toys & more</p>
+            <button
+                class="bg-white text-yellow-600 px-4 py-2 rounded-md font-semibold hover:bg-gray-100 transition duration-300">Order
+                Now</button>
+        </div>
+        <div class="bg-gray-600 text-white p-4 rounded-lg">
+            <h3 class="font-bold mb-2">No time for a diaper run?</h3>
+            <p class="mb-4">Get baby care essentials in minutes</p>
+            <button
+                class="bg-white text-gray-700 px-4 py-2 rounded-md font-semibold hover:bg-gray-100 transition duration-300">Order
+                Now</button>
+        </div>
+    </div>
+
+    <section>
+        <h2 class="text-2xl font-bold mb-4">Snacks & Munchies</h2>
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+            <div class="bg-white p-4 rounded-lg text-center shadow-md transition-transform hover:scale-105">
+                <img src="{%static 'images/assets/image2.png'%}" alt="Sample Product 1"
+                    class="w-full h-32 object-cover mb-2 rounded">
+                <p class="font-semibold mb-1">Sample Product 1</p>
+                <p class="text-blinkit-green font-bold mb-2">₹99</p>
+                <button
+                    class="bg-blinkit-green text-white px-4 py-2 rounded-md w-full hover:bg-green-700 transition duration-300">ADD</button>
+            </div>
+            <div class="bg-white p-4 rounded-lg text-center shadow-md transition-transform hover:scale-105">
+                <img src="/placeholder.svg" alt="Sample Product 2" class="w-full h-32 object-cover mb-2 rounded">
+                <p class="font-semibold mb-1">Sample Product 2</p>
+                <p class="text-blinkit-green font-bold mb-2">₹149</p>
+                <button
+                    class="bg-blinkit-green text-white px-4 py-2 rounded-md w-full hover:bg-green-700 transition duration-300">ADD</button>
+            </div>
+            <div class="bg-white p-4 rounded-lg text-center shadow-md transition-transform hover:scale-105">
+                <img src="/placeholder.svg" alt="Sample Product 3" class="w-full h-32 object-cover mb-2 rounded">
+                <p class="font-semibold mb-1">Sample Product 3</p>
+                <p class="text-blinkit-green font-bold mb-2">₹199</p>
+                <button
+                    class="bg-blinkit-green text-white px-4 py-2 rounded-md w-full hover:bg-green-700 transition duration-300">ADD</button>
+            </div>
+            <div class="bg-white p-4 rounded-lg text-center shadow-md transition-transform hover:scale-105">
+                <img src="/placeholder.svg" alt="Sample Product 4" class="w-full h-32 object-cover mb-2 rounded">
+                <p class="font-semibold mb-1">Sample Product 4</p>
+                <p class="text-blinkit-green font-bold mb-2">₹79</p>
+                <button
+                    class="bg-blinkit-green text-white px-4 py-2 rounded-md w-full hover:bg-green-700 transition duration-300">ADD</button>
+            </div>
+            <div class="bg-white p-4 rounded-lg text-center shadow-md transition-transform hover:scale-105">
+                <img src="/placeholder.svg" alt="Sample Product 5" class="w-full h-32 object-cover mb-2 rounded">
+                <p class="font-semibold mb-1">Sample Product 5</p>
+                <p class="text-blinkit-green font-bold mb-2">₹129</p>
+                <button
+                    class="bg-blinkit-green text-white px-4 py-2 rounded-md w-full hover:bg-green-700 transition duration-300">ADD</button>
+            </div>
+        </div>
+    </section>
+
+
+</main>
+
 
 {%endblock%}
