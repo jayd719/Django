@@ -1,0 +1,24 @@
+@startuml User Registration
+title User Registration
+!pragma useVerticalIf on
+start
+if (Request Method is POST) then (yes)
+  :Validate registration form;
+  if (Form is valid?) then (yes)
+    :Register user;
+    :Log in user;
+    :Redirect to dashboard/home;
+    stop
+  elseif (Form is invalid) then (yes)
+    :Display errors;
+    :Render signup template with form;
+    stop
+  endif
+elseif (Request Method is GET) then (yes)
+  :Render empty registration form;
+else (nothing)
+  :Do nothing;
+endif
+stop
+
+@enduml

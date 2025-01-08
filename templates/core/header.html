@@ -1,20 +1,46 @@
-{%load static%}
+{% load static %}
+
 <header class="bg-white p-4 shadow-lg flex flex-wrap items-center justify-between gap-4 md:gap-6">
-    <h1 class="text-3xl font-extrabold text-green-600 tracking-wide" id="headerlogo"><a href="/">blinkit</a></h1>
+    <!-- Logo -->
+    <h1 class="text-3xl font-extrabold text-green-600 tracking-wide" id="headerlogo">
+        <a href="/">blinkit</a>
+    </h1>
+
+    <!-- Delivery Info -->
     <div class="text-sm font-semibold text-center md:text-left">
         <p class="text-gray-700">🚀 Delivery in <span class="text-green-600 font-bold">14 minutes</span></p>
-        <p class="text-gray-500">📍 <span id="cityname"></span> </p>
+        <p class="text-gray-500">📍 <span id="cityname"></span></p>
     </div>
+
+    <!-- Search Bar -->
     <input type="text" placeholder="🔍 Search 'paneer'"
-        class="border p-3 rounded-lg w-full md:w-1/3 shadow-sm focus:ring-2 focus:ring-green-500">
+        class="border p-3 rounded-lg w-full md:w-1/3 shadow-sm focus:ring-2 focus:ring-green-500"
+        aria-label="Search for products">
+
+    <!-- User Actions -->
     <div class="flex gap-4">
+        {% if user.is_authenticated %}
+        <div>
+            {%include 'core/usermenu.html'%}
+        </div>
+
+        {% else %}
         <button onclick="loginform.showModal()"
             class="text-green-600 font-semibold hover:text-green-700 transition">Login</button>
-        <button class="bg-green-600 text-white px-6 py-2 rounded-lg shadow-md hover:bg-green-700 transition">
-            <label for="my-drawer-4">🛒 MyCart</label></button>
+        {% include 'core/login.html' %} <!-- Login form if not signed in -->
+        {% endif %}
+
+        <!-- Cart Button -->
+
+        <label for="my-drawer-4"
+            class="bg-green-600 text-white px-6 py-2 rounded-lg shadow-md hover:bg-green-700 transition hover:cursor-pointer">🛒
+            MyCart</label>
 
     </div>
 </header>
-{%include 'core/cart.html'%}
-{%include 'core/login.html'%}
-<script src="{%static 'homepage/location.js'%}"></script>
+
+<!-- Include Cart -->
+{% include 'core/cart.html' %}
+
+<!-- External JavaScript -->
+<script src="{% static 'homepage/location.js' %}"></script>

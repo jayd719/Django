@@ -12,13 +12,21 @@
 </head>
 
 <body>
+
     {%include 'core/header.html' %}
 
     <div class="flex justify-center items-center min-h-screen bg-gray-100">
         {%block content%}
         {%endblock%}
     </div>
-    {%include 'core/footer.html' %}
+
+
+
+    <script src="{%static 'homepage/footer.js'%}"></script>
+    <!-- htmx -->
+    <script src="https://unpkg.com/htmx.org@2.0.4"
+        integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>

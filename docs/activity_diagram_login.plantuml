@@ -1,0 +1,23 @@
+@startuml login
+!pragma useVerticalIf on
+start
+
+if (Request Method is POST) then (yes)
+  :Validate email and password;
+  if (Authentication successful?) then (yes)
+    :Log in user;
+    :Redirect to homepage;
+    stop
+  elseif (Authentication fails) then (yes)
+    :Display error message;
+    :Redirect to login page;
+    stop
+  endif
+elseif (Request Method is GET) then (yes)
+  :Render login template;
+else (nothing)
+  :Do nothing;
+endif
+stop
+
+@enduml

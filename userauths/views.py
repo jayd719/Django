@@ -1,9 +1,11 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponse
 from userauths.forms import UserRegisterForm
 from django.contrib.auth import login, authenticate
 from django.contrib import messages
 
 app_name = "userauths"
+
+LOGIN_FAILED_MESSAGE = '<div class="border border-red-500 bg-red-100 text-red-600 p-3 rounded-lg h-auto grid">Oops! Your email or password is incorrect. Remember, passwords are case-sensitive. Try again! <br><a class="link-primary" href="/reset-password/">Forgot password?</a></div>'
 
 
 def user_register_view(request):
@@ -23,14 +25,14 @@ def user_register_view(request):
         form = UserRegisterForm(request.POST)
         if form.is_valid():
             user = form.save()
-            username = form.cleaned_data.get("username")
+            firstname = form.cleaned_data.get("first_name")
 
             # Flash success message
             messages.success(
-                request, f"Hey {username}!, Your Account was created successfully"
+                request, f"Hey {firstname}!, Your Account was created successfully"
             )
 
-            # Authenticate user
+            # Authenticate user--> username is replace by email as primary identifier
             authenticated_user = authenticate(
                 username=form.cleaned_data.get("email"),
                 password=form.cleaned_data.get("password1"),
@@ -44,3 +46,30 @@ def user_register_view(request):
 
     context = {"form": form}
     return render(request, "userauths/signup.html", context)
+
+
+def login_user_view(request):
+    """
+    Handles user login.
+
+    - If the request method is POST, it validates the email and password.
+    - If authentication is successful, the user is logged in and redirected to the homepage.
+    - If authentication fails, an error message is displayed and the user is redirected to the login page.
+    - If the request method is GET, the login page is displayed.
+
+    Returns:
+        - Renders the login template for GET requests.
+        - Redirects the user to the homepage after successful login.
+        - Redirects the user back to the login page with an error message on failure.
+    """
+    if request.method == "POST":
+        email = request.POST.get("id_email_login")
+        password = request.POST.get("id_password_login")
+        print(f"{email}--{password}")
+        user = authenticate(username=email, password=password)
+        print(user)
+        if user:
+            login(request, user)
+            return HttpResponse("<script>location.reload()</script>")
+        else:
+            return HttpResponse(LOGIN_FAILED_MESSAGE)
