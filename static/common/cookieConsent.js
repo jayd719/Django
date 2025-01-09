@@ -14,11 +14,11 @@ function cookieConsentPopup() {
     // Create the main popup container
     const cookiePopup = document.createElement("div");
     cookiePopup.id = "cookie-popup";
-    cookiePopup.className = "fixed bottom-0 left-0 right-0 bg-gray-100 p-4 shadow-lg flex flex-col sm:flex-row items-center justify-between gap-4 m-4";
+    cookiePopup.className = "fixed bottom-0 left-0 right-0 z-[100] bg-white p-4 shadow-xl rounded-xl border flex flex-col sm:flex-row items-center justify-between gap-4 m-4 transform translate-y-full opacity-0 transition-all duration-500 ease-in-out";
 
     // Create the decline button
     const declineButton = document.createElement("button");
-    declineButton.className = "px-4 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300 transition-colors";
+    declineButton.className = "px-4 py-2 bg-gray-200 text-green-800 rounded hover:bg-gray-300 transition-colors";
     declineButton.innerText = "Decline";
     declineButton.addEventListener("click", () => {
         cookiePopup.remove(); // Remove popup when declined
@@ -26,7 +26,7 @@ function cookieConsentPopup() {
 
     // Create the accept button
     const acceptButton = document.createElement("button");
-    acceptButton.className = "px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors";
+    acceptButton.className = "px-4 py-2 bg-green-600 text-white rounded hover:bg-green-900 transition-colors";
     acceptButton.innerText = "Accept";
     acceptButton.addEventListener("click", () => {
         document.cookie = "cookieConsent=true; path=/; max-age=31536000"; // Set a 1-year cookie
@@ -51,9 +51,18 @@ function cookieConsentPopup() {
 
     // Append popup to the document body
     document.body.appendChild(cookiePopup);
+
+
+    // Show cookie message after 1.5s delay
+    setTimeout(() => {
+        cookiePopup.classList.remove("translate-y-full", "opacity-0")
+    }, 1500)
 }
 
 // Check if the user has already accepted cookies before displaying the popup
 if (!document.cookie.includes("cookieConsent=true")) {
     cookieConsentPopup();
+
+
+
 }
