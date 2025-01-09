@@ -1,3 +1,13 @@
+`-------------------------------------------------------
+Django: Style Login/Registration Forms
+-------------------------------------------------------
+Author: JD
+ID: 91786
+Uses: 
+Version: 1.0.8
+__updated__ = Thu Jan 09 2025
+-------------------------------------------------------`
+
 document.addEventListener("DOMContentLoaded", () => {
     applyFormStyling();
     cloneLogoStyles("loginformlogo1");

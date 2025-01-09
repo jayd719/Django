@@ -1,3 +1,13 @@
+`-------------------------------------------------------
+Django: Creates Footer
+-------------------------------------------------------
+Author: JD
+ID: 91786
+Uses: 
+Version: 1.0.8
+__updated__ = Thu Jan 07 2025
+-------------------------------------------------------`
+
 document.addEventListener("DOMContentLoaded", function () {
     const footerSections = [
         {

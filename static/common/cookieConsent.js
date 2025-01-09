@@ -1,9 +1,20 @@
+`-------------------------------------------------------
+Django: Cookie Consent Pop Up Message
+-------------------------------------------------------
+Author: JD
+ID: 91786
+Uses: 
+Version: 1.0.8
+__updated__ = Thu Jan 09 2025
+-------------------------------------------------------`
+
+
 // Function to create and display a cookie consent popup
 function cookieConsentPopup() {
     // Create the main popup container
     const cookiePopup = document.createElement("div");
     cookiePopup.id = "cookie-popup";
-    cookiePopup.className = "fixed bottom-0 left-0 right-0 bg-gray-100 p-4 shadow-lg flex flex-col sm:flex-row items-center justify-between gap-4";
+    cookiePopup.className = "fixed bottom-0 left-0 right-0 bg-gray-100 p-4 shadow-lg flex flex-col sm:flex-row items-center justify-between gap-4 m-4";
 
     // Create the decline button
     const declineButton = document.createElement("button");

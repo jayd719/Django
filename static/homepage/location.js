@@ -1,3 +1,13 @@
+`-------------------------------------------------------
+Django: Location Module
+-------------------------------------------------------
+Author: JD
+ID: 91786
+Uses: 
+Version: 1.0.8
+__updated__ = Thu Jan 07 2025
+-------------------------------------------------------`
+
 // Function to get user's geolocation
 function getUserLocation() {
     return new Promise((resolve, reject) => {
