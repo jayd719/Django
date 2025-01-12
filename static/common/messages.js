@@ -10,6 +10,8 @@ __updated__ = Thu Jan 12 2025
 const messageBox = document.getElementById("message-box");
 const SHOWTIME = 5000
 
+
+
 // Show the message box with a delay
 setTimeout(() => {
     messageBox.classList.remove("translate-y-full", "opacity-0");

@@ -6,7 +6,7 @@ from django.contrib import messages
 app_name = "userauths"
 
 LOGIN_FAILED_MESSAGE = '<div class="border border-red-500 bg-red-100 text-red-600 p-3 rounded-lg h-auto grid">Oops! Your email or password is incorrect. Remember, passwords are case-sensitive. Try again! <br><a class="link-primary" href="/reset-password/">Forgot password?</a></div>'
-ENABLE_COOKIE_MESSAGE = '<div class="border border-red-500 bg-red-100 text-red-600 p-3 rounded-lg h-auto grid">Please enable cookies and try again.</div>'
+ENABLE_COOKIE_MESSAGE = '<div class="border border-red-500 bg-red-100 text-red-600 p-3 rounded-lg h-auto">Please enable cookies in your browser settings to continue. For more details, review our <a class="text-blue-600" href="/about/cookie-policy">Cookie Policy</a>. <a class="text-blue-600" href="/">Click To Accept Cookeis</a></div>'
 
 
 def user_register_view(request):
@@ -67,13 +67,13 @@ def login_user_view(request):
         email = request.POST.get("id_email_login")
         password = request.POST.get("id_password_login")
 
-        # if request.session.test_cookie_worked():
-        #     request.session.delete_test_cookie()
-        #     return HttpResponse(ENABLE_COOKIE_MESSAGE)
+        if request.COOKIES.get("cookieConsent") is None:
+            return HttpResponse(ENABLE_COOKIE_MESSAGE)
 
         user = authenticate(username=email, password=password)
         if user:
             login(request, user)
+            messages.success(request, f"Hi {user.first_name}! Welcome Back")
             return HttpResponse("<script>location.reload()</script>")
         else:
             return HttpResponse(LOGIN_FAILED_MESSAGE)
