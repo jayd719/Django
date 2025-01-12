@@ -1,11 +1,12 @@
 from django.shortcuts import render, redirect, HttpResponse
 from userauths.forms import UserRegisterForm
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate, logout
 from django.contrib import messages
 
 app_name = "userauths"
 
 LOGIN_FAILED_MESSAGE = '<div class="border border-red-500 bg-red-100 text-red-600 p-3 rounded-lg h-auto grid">Oops! Your email or password is incorrect. Remember, passwords are case-sensitive. Try again! <br><a class="link-primary" href="/reset-password/">Forgot password?</a></div>'
+ENABLE_COOKIE_MESSAGE = '<div class="border border-red-500 bg-red-100 text-red-600 p-3 rounded-lg h-auto grid">Please enable cookies and try again.</div>'
 
 
 def user_register_view(request):
@@ -65,11 +66,20 @@ def login_user_view(request):
     if request.method == "POST":
         email = request.POST.get("id_email_login")
         password = request.POST.get("id_password_login")
-        print(f"{email}--{password}")
+
+        # if request.session.test_cookie_worked():
+        #     request.session.delete_test_cookie()
+        #     return HttpResponse(ENABLE_COOKIE_MESSAGE)
+
         user = authenticate(username=email, password=password)
-        print(user)
         if user:
             login(request, user)
             return HttpResponse("<script>location.reload()</script>")
         else:
             return HttpResponse(LOGIN_FAILED_MESSAGE)
+
+
+def logout_user_view(request):
+    logout(request)
+    messages.success(request, "User logged out successfully.")
+    return redirect("home")

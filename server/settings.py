@@ -151,4 +151,3 @@ CRISPY_TEMPLATE_PACK = "tailwind"
 
 # Redirect on login and logout
 LOGIN_REDIRECT_URL = "home"
-LOGOUT_REDIRECT_URL = "home"
